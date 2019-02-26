@@ -69,11 +69,6 @@ namespace actions {
 namespace transformations {
 
 
-std::string Transformation::execute(const std::string &value,
-    Transaction *transaction) {
-    return value;
-}
-
 Transformation* Transformation::instantiate(std::string a) {
     IF_MATCH(base64DecodeExt) { return new Base64DecodeExt(a); }
     IF_MATCH(base64Decode) { return new Base64Decode(a); }
@@ -114,7 +109,7 @@ Transformation* Transformation::instantiate(std::string a) {
     IF_MATCH(urlDecodeUni) { return new UrlDecodeUni(a); }
     IF_MATCH(urlDecode) { return new UrlDecode(a); }
     IF_MATCH(urlEncode) { return new UrlEncode(a); }
-    IF_MATCH(utf8ToUnicode) { return new Utf8ToUnicode(a); }
+    IF_MATCH(utf8toUnicode) { return new Utf8ToUnicode(a); }
 
     return new Transformation(a);
 }
